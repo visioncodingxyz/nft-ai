@@ -1,0 +1,316 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Adding Forbidden Myth font for Mythic Labs branding */
+@font-face {
+  font-family: "Forbidden Myth";
+  src: url("https://cdn.jsdelivr.net/gh/jayvicsanantonio/Forbidden-Myth-Font@main/ForbiddenMyth.woff2") format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/jayvicsanantonio/Forbidden-Myth-Font@main/ForbiddenMyth.woff") format("woff"),
+    url("https://cdn.jsdelivr.net/gh/jayvicsanantonio/Forbidden-Myth-Font@main/ForbiddenMyth.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  /* Adding unicode-range to ensure proper fallback */
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  /* Pure black and dark grays as specified */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  /* Adding Poppins font variable */
+  --font-poppins: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Enhanced gradient utilities for purple-gold theme */
+@layer utilities {
+  /* Updated gradient to match new brand colors: orange → pink → purple → blue */
+  .gradient-purple-gold {
+    background: linear-gradient(135deg, #f59e0b 0%, #ec4899 33%, #a855f7 66%, #3b82f6 100%);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #f59e0b, #ec4899, #a855f7, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Adding silver metallic text for hero text */
+  .silver-metallic-text {
+    background: linear-gradient(135deg, #e5e7eb 0%, #9ca3af 25%, #f3f4f6 50%, #6b7280 75%, #d1d5db 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-border {
+    position: relative;
+    background: #111111;
+    border: 1px solid #1f1f1f;
+  }
+
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    /* Updated gradient to match new brand colors */
+    background: linear-gradient(135deg, #f59e0b, #ec4899, #a855f7, #3b82f6);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .gradient-border:hover::before {
+    opacity: 1;
+  }
+
+  /* Updated glow effect to match new brand colors */
+  .glow-effect {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.3), 0 0 40px rgba(168, 85, 247, 0.2);
+  }
+
+  .glow-effect-hover {
+    transition: box-shadow 0.3s ease;
+  }
+
+  .glow-effect-hover:hover {
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.5), 0 0 60px rgba(168, 85, 247, 0.3);
+  }
+
+  .glass-effect {
+    background: rgba(17, 17, 17, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .shimmer {
+    background: linear-gradient(90deg, #111111 0%, #1f1f1f 50%, #111111 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* Adding shimmer animation for notification bar */
+  .animate-shimmer {
+    animation: shimmer-slide 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer-slide {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Adding marquee animation for trending NFTs */
+  .animate-marquee {
+    animation: marquee 60s linear infinite;
+  }
+
+  .pause-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-66.666%);
+    }
+  }
+
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: scale(1.02);
+    border-color: rgba(139, 92, 246, 0.5);
+  }
+
+  /* Enhanced mythic-brand class with better font fallback stack */
+  .mythic-brand {
+    /* Changed to Poppins for modern look */
+    font-family: var(--font-poppins), "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    letter-spacing: 0.02em;
+    font-weight: 700;
+    /* Force font rendering optimization */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Enhanced hero background with static multi-layered gradients */
+  /* Updated hero gradient colors to match new brand */
+  .hero-gradient-bg {
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(245, 158, 11, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 50% at 80% 50%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 50% at 20% 50%, rgba(236, 72, 153, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse 100% 100% at 50% 100%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+  }
+
+  .hero-gradient-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 30%, rgba(245, 158, 11, 0.12) 0%, transparent 25%),
+      radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 25%),
+      radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.06) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  .hero-grid-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(245, 158, 11, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(245, 158, 11, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Adding radial gradient utility for header and footer backgrounds */
+  .bg-gradient-radial {
+    background-image: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+}
