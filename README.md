@@ -2,6 +2,10 @@
 
 A comprehensive AI-powered NFT and token generation, management, and marketplace platform built on the Solana blockchain. Create, mint, trade, and analyze AI-generated digital assets with integrated marketplace functionality, tokenomics support, and advanced rarity analytics.
 
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com)
+[![Built with Next.js](https://img.shields.io/badge/Built%20with-Next.js-black?style=for-the-badge&logo=next.js)](https://nextjs.org)
+[![Powered by Solana](https://img.shields.io/badge/Powered%20by-Solana-14F195?style=for-the-badge&logo=solana)](https://solana.com)
+
 ## 🚀 Features
 
 ### NFT Creation & Generation
